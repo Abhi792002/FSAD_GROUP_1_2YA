@@ -1,0 +1,279 @@
+/* AdminCategory.css - Example styling */
+.admin-category-container {
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+}
+
+button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.category-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+.category-table th,
+.category-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.category-table th {
+  background-color: #f7f7f7;
+  font-weight: bold;
+}
+
+.category-table td button {
+  margin: 0 4px;
+}
+
+.category-table tr:hover {
+  background-color: #fafafa;
+}
+
+.category-table thead th:nth-child(1) {
+  width: 10%;
+}
+.category-table thead th:nth-child(2) {
+  width: 20%;
+}
+.category-table thead th:nth-child(3) {
+  width: 20%;
+}
+.category-table thead th:nth-child(4) {
+  width: 20%;
+}
+
+/* Optional: prevent actions column from stretching */
+.category-table td:last-child,
+.category-table th:last-child {
+  width: 20%;
+  min-width: 150px;
+}
+
+.edit-input {
+    width: 100%;
+}
+
+.confirm-btn,
+.update-btn,
+.delete-btn {
+    padding: 6px 12px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.confirm-btn {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+}
+
+.update-btn {
+    background-color: #2196f3;
+    color: white;
+    border: none;
+}
+
+.delete-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+}
+
+.wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Style for form container */
+.form-container {
+    max-width: 700px;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+/* Style for form elements */
+.form-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.form-container input[type="text"],
+.form-container select {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-container button[type="submit"] {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.form-container button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.login {
+    margin: 0 auto;
+    padding: 63px;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.register {
+    margin: 0 auto;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.register-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    /* Add background color to the container */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Add a slight shadow */
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.input-field {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.register-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.register-btn:hover {
+    background-color: #0056b3;
+}
+
+/* AdminHome.css */
+.admin-home {
+    /* Styles for the main container div */
+    /* For example: */
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+.admin-home-content {
+    /* Styles for the content area */
+    /* For example: */
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: white;
+}
+
+.error-message {
+    color: #dc3545;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 14px;
+}
+.dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dialog-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 600px;
+}
+.date-picker-wrapper {
+    transition: all 0.3s ease;
+    overflow: hidden;
+  }
+  
+  .date-picker-wrapper.collapsed {
+    max-height: 0;
+    opacity: 0;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .date-picker-wrapper.expanded {
+    max-height: 500px; /* adjust based on your DatePicker's height */
+    opacity: 1;
+  }
+  
