@@ -20,9 +20,11 @@ export default function Login() {
         try {
             const response = await axios.post("http://localhost:8080/auth/login", data);
             if (response.status === 200) {
-                localStorage.setItem("token", response.data);
+                const { token, username, userId } = response.data;
+                localStorage.setItem("token", token);
                 localStorage.setItem("username", username);
-                axios.defaults.headers.common['Authorization'] = `Bearer ${response.data}`;
+                localStorage.setItem("userId",userId);
+                axios.defaults.headers.common['Authorization'] = `Bearer ${response}`;
                 navigate("/");
             }
         } catch (error) {

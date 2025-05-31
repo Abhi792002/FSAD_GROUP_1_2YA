@@ -42,5 +42,13 @@ public class UserController {
     public ResponseEntity<UserEntity> changeUserPassword(@PathVariable Long id, @RequestBody UserPwdDto userPwdDto){
         return ResponseEntity.ok().body(userService.changeUserPassword(id, userPwdDto));
     }
-
+    // @PutMapping("/{id}/change-password")
+    // public ResponseEntity<?> changeUserPassword(@PathVariable Long id, @RequestBody UserPwdDto userPwdDto) {
+    //     try {
+    //         UserEntity updatedUser = userService.changeUserPassword(id, userPwdDto);
+    //         return ResponseEntity.ok(updatedUser);
+    //     } catch (RuntimeException e) {
+    //         return ResponseEntity.badRequest().body(e.getMessage());
+    //     }
+    // }
 }

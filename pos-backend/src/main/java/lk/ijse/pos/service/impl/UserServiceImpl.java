@@ -29,9 +29,11 @@ public class UserServiceImpl implements UserService{
     @Override
     public UserEntity changeUserPassword(Long id, UserPwdDto userPwdDto) {
         UserEntity userEntity = userRepository.findById(id).orElse(null);
-        System.out.println(userPwdDto.getPassword());
+        System.out.println(userPwdDto.getNewPassword());
         if (userEntity!=null) {
-            userEntity.setPassword(userPwdDto.getPassword());
+            String encodedPassword = passwordEncoder.encode(userPwdDto.getNewPassword());
+            userEntity.setPassword(encodedPassword);
+            //userEntity.setPassword(userPwdDto.getNewPassword());
             return userRepository.save(userEntity);
         } else {
             return null;

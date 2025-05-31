@@ -9,7 +9,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-import lk.ijse.pos.dto.LoginDto;
+//import lk.ijse.pos.dto.LoginDto;
+import lk.ijse.pos.dto.LoginRequestDto;
+import lk.ijse.pos.dto.LoginResponseDto;
 import lk.ijse.pos.entity.UserEntity;
 import lk.ijse.pos.repository.UserRepository;
 import lk.ijse.pos.security.jwt.JwtUtils;
@@ -34,7 +36,7 @@ public class AuthController {
     JwtUtils jwtUtils;
     
     @PostMapping("/auth/login") 
-    public ResponseEntity<?> login(@RequestBody LoginDto loginDTO) {
+    public ResponseEntity<?> login(@RequestBody LoginRequestDto loginDTO) {
         try {
             UserEntity user = userService.handleLoginAttempt(loginDTO.getUsername(), loginDTO.getPassword());
             if (user == null) {
@@ -50,13 +52,15 @@ public class AuthController {
             String token = jwtUtils.generateJwtToken(authentication);
 
             userService.recordLoginDetails(user, "SUCCESS");
-
-            return ResponseEntity.ok().body(token);
+           LoginResponseDto response = new LoginResponseDto(token, user.getUsername(), user.getId());
+           // return ResponseEntity.ok().body(token);
+            return ResponseEntity.ok(response);
         } catch (RuntimeException e) {
             return ResponseEntity.status(403).body(e.getMessage());
         }
     }
-
+   
+    
     @PostMapping("/auth/register")
     public ResponseEntity<?> register(@RequestBody UserEntity userEntity) {
         
@@ -77,7 +81,7 @@ public class AuthController {
     }
 
     @PostMapping("/auth/logout")
-    public ResponseEntity<?> logout(@RequestBody LoginDto loginDto) {
+    public ResponseEntity<?> logout(@RequestBody LoginRequestDto loginDto) {
         try {
             UserEntity user = userRepository.findByUsername(loginDto.getUsername()).orElse(null);
             if (user != null) {
