@@ -1,15 +1,22 @@
-import React from 'react';
+//import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import React, { useState, useRef, useEffect } from 'react';
 
-
+import '../Style.css'
 export default function NavBar() {
-
     const navigate = useNavigate();
+        const username = localStorage.getItem("username") || "User";
+        const [isOpen, setIsOpen] = useState(false);
+        const dropdownRef = useRef(null);
+    
 
     const home = () => {
         navigate("/");
     }
+    const toggleDropdown = () => {
+        setIsOpen(!isOpen);
+    };
 
     const logout = async () => {
         const oBody = {
@@ -20,6 +27,10 @@ export default function NavBar() {
         localStorage.removeItem("token");
         navigate("/login");
     }
+    const goToProfile = () => {
+        navigate("/edit-profile");
+        setIsOpen(false);
+    };
 
     return (
         <div>
@@ -39,9 +50,23 @@ export default function NavBar() {
                                     <a className="nav-link" href='' >Cart</a>
                                 </li>
                             </ul>
-                            <form className="d-flex" role="search">
-                                <button className="btn btn-primary" onClick={logout}>Logout</button>
-                            </form>
+                            <div className="dropdown" ref={dropdownRef}>
+                        <img
+                            src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+                            alt="Profile"
+                            width="32"
+                            height="32"
+                            className="rounded-circle"
+                            style={{ cursor: "pointer", objectFit: "cover" }}
+                            onClick={toggleDropdown}
+                        />
+                        {isOpen && (
+                            <ul className="custom-dropdown-menu">
+                                <li onClick={goToProfile}>👤 Profile</li>
+                                <li onClick={logout}>🚪 Logout</li>
+                            </ul>
+                        )}
+                    </div>
                         </div>
                     </div>
                 </nav>

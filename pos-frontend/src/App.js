@@ -17,7 +17,7 @@ import Login from './customerpages/Auth/Login';
 import Register from './customerpages/Auth/Register';
 import CustomerProtectedRoutes from './utils/CustomerProtectedRoutes';
 import AdminProtectedRoutes from './utils/AdminProtectedRoutes';
-
+import Profile from './customerpages/Auth/Profile';
 function App() {
   return (
     <div className="App">
@@ -44,6 +44,7 @@ function App() {
 
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
+          <Route path='/edit-profile' element={<Profile />} />
         </Routes>
       </BrowserRouter>
     </div>
