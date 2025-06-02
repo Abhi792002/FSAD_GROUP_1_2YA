@@ -1,5 +1,7 @@
 package lk.ijse.pos.dto;
 
+import lombok.Getter;
+import lombok.Setter;
 public class LoginResponseDto {
     private String token;
     private String username;
